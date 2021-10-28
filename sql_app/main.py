@@ -1,14 +1,11 @@
 from typing import List
-import sys
+
 
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
-from esquemas import schemas
-from modelos import models
-
-
-from databases.database import SessionLocal, engine
+from . import crud, models, schemas
+from .database import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine)
 
